@@ -45,7 +45,7 @@ Features:
 - Usage examples for most of the features are available, look in the
   docs/ directory
 
-This class has in PEAR status: %{_status}.
+In PEAR status of this package is: %{_status}.
 
 %description -l pl
 HTML_Template_Sigma jest implementacj± API Integrated Templates
