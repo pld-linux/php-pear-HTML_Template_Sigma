@@ -1,12 +1,10 @@
-# ToDo:
-# - pl description
 %include	/usr/lib/rpm/macros.php
 %define		_class		HTML
 %define		_subclass	Template
 %define		_status		stable
 %define		_pearname	%{_class}_%{_subclass}_Sigma
-Summary:	%{_pearname} - An implementation of Integrated Templates API with template 'compilation' added
-Summary(pl):	%{_pearname} - Implementacja AP Integrated Templates z opcj± 'kompilacji'
+Summary:	%{_pearname} - Integrated Templates API implemetation with template 'compilation'
+Summary(pl):	%{_pearname} - Implementacja API Integrated Templates z "kompilacj±" szablonów
 Name:		php-pear-%{_pearname}
 Version:	1.0.1
 Release:	1
@@ -48,12 +46,39 @@ Features:
 
 This class has in PEAR status: %{_status}.
 
+%description -l pl
+HTML_Template_Sigma jest implementacj± API Integrated Templates
+zaprojektowanego przez Ulfa Wendla.
+
+Mo¿liwo¶ci:
+- zagnie¿d¿one bloki, kontrolowane przez silnik
+- mo¿liwo¶æ do³±czania plików z szablonu: <!-- INCLUDE -->
+- automatyczne usuwanie pustych bloków i nieznanych zmiennych
+  (dostêpne s± metody do rêcznego obej¶cia tego)
+- metody do dodawania i podmieniania bloków z szablonów w czasie pracy
+- mo¿liwo¶æ wstawiania do szablonów wywo³añ prostych funkcji:
+  func_uppercase('Hello world!') oraz definiowanie do tego funkcji
+  callback
+- "kompilowane" szablony: Silnik musi przeanalizowaæ plik szablonu
+  przy u¿yciu wyra¿eñ regularnych, aby znale¼æ wszystkie bloki i
+  zmienne; jest to "droga" operacja i nie jest konieczne wykonywanie
+  jej przy ka¿dym ¿±daniu strony - szablony rzadko zmieniaj± siê na
+  stronach produkcyjnych. St±d ta mo¿liwo¶æ: wewnêtrzna reprezentacja
+  struktury szablonu jest zapisywana do pliku i ten plik jest
+  wczytywany zamiast ¼ród³owego przy nastêpnych ¿±daniach (o ile nie
+  zmieni³o siê ¼ród³o)
+- testy oparte na PHPUnit do definiowania prawid³owego zachowania
+- dostêpne przyk³ady u¿ycia do wiêkszo¶ci mo¿liwo¶ci, wystarczy
+  zajrzeæ do katalogu docs/.
+
+Ta klasa ma w PEAR status: %{_status}.
+
 %prep
 %setup -q -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
 
 install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
 
