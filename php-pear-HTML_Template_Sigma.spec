@@ -8,18 +8,18 @@ Summary:	%{_pearname} - Integrated Templates API implemetation with template 'co
 Summary(pl):	%{_pearname} - Implementacja API Integrated Templates z "kompilacj±" szablonów
 Name:		php-pear-%{_pearname}
 Version:	1.1.3
-Release:	1
+Release:	1.1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	6c7ae336e755e47618a84da867bf1b80
 URL:		http://pear.php.net/package/HTML_Template_Sigma/
-BuildRequires:	rpm-php-pearprov >= 4.0.2-98
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+#BuildRequires:	cpp
 Requires:	php-pear
+Requires:	php-ctype
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_noautoreq	'pear())'
 
 %description
 HTML_Template_Sigma implements Integrated Templates API designed by
@@ -74,20 +74,36 @@ Mo¿liwo¶ci:
 
 Ta klasa ma w PEAR status: %{_status}.
 
+%package tests
+Summary:	Tests for PEAR::%{_pearname}
+Summary(pl):	Testy dla PEAR::%{_pearname}
+Group:		Development
+Requires:	%{name} = %{version}-%{release}
+
+%description tests
+Tests for PEAR::%{_pearname}.
+
+%description tests -l pl
+Testy dla PEAR::%{_pearname}.
+
 %prep
-%setup -q -c
+%pear_package_setup
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
-
-install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}
+%pear_package_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc %{_pearname}-%{version}/docs
-%doc %{_pearname}-%{version}/tests
+%doc install.log
+%doc docs/%{_pearname}/docs/*
+%{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/%{_class}/%{_subclass}/*.php
+
+%files tests
+%defattr(644,root,root,755)
+%{php_pear_dir}/tests/*
