@@ -21,6 +21,9 @@ Requires:	php-ctype
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# included in tests
+%define		_noautoreq 'pear(Sigma_api_testcase.php)'
+
 %description
 HTML_Template_Sigma implements Integrated Templates API designed by
 Ulf Wendel.
