@@ -8,7 +8,7 @@ Summary:	%{_pearname} - Integrated Templates API implemetation with template 'co
 Summary(pl):	%{_pearname} - Implementacja API Integrated Templates z "kompilacj±" szablonów
 Name:		php-pear-%{_pearname}
 Version:	1.1.5
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -17,8 +17,8 @@ URL:		http://pear.php.net/package/HTML_Template_Sigma/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
+Requires:	php(ctype)
 Requires:	php-pear
-Requires:	php-ctype
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,12 +66,11 @@ Mo¿liwo¶ci:
   callback
 - "kompilowane" szablony: Silnik musi przeanalizowaæ plik szablonu
   przy u¿yciu wyra¿eñ regularnych, aby znale¼æ wszystkie bloki i
-  zmienne; jest to "droga" operacja i nie jest konieczne wykonywanie
-  jej przy ka¿dym ¿±daniu strony - szablony rzadko zmieniaj± siê na
-  stronach produkcyjnych. St±d ta mo¿liwo¶æ: wewnêtrzna reprezentacja
-  struktury szablonu jest zapisywana do pliku i ten plik jest
-  wczytywany zamiast ¼ród³owego przy nastêpnych ¿±daniach (o ile nie
-  zmieni³o siê ¼ród³o)
+  zmienne; jest to "droga" operacja i nie jest konieczne wykonywanie jej
+  przy ka¿dym ¿±daniu strony - szablony rzadko zmieniaj± siê na stronach
+  produkcyjnych. St±d ta mo¿liwo¶æ: wewnêtrzna reprezentacja struktury
+  szablonu jest zapisywana do pliku i ten plik jest wczytywany zamiast
+  ¼ród³owego przy nastêpnych ¿±daniach (o ile nie zmieni³o siê ¼ród³o)
 - testy oparte na PHPUnit do definiowania prawid³owego zachowania
 - dostêpne przyk³ady u¿ycia do wiêkszo¶ci mo¿liwo¶ci, wystarczy
   zajrzeæ do katalogu docs/.
