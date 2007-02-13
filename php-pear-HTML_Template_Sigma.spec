@@ -5,7 +5,7 @@
 %define		_pearname	%{_class}_%{_subclass}_Sigma
 
 Summary:	%{_pearname} - Integrated Templates API implemetation with template 'compilation'
-Summary(pl.UTF-8):   %{_pearname} - Implementacja API Integrated Templates z "kompilacją" szablonów
+Summary(pl.UTF-8):	%{_pearname} - Implementacja API Integrated Templates z "kompilacją" szablonów
 Name:		php-pear-%{_pearname}
 Version:	1.1.5
 Release:	3
@@ -79,7 +79,7 @@ Ta klasa ma w PEAR status: %{_status}.
 
 %package tests
 Summary:	Tests for PEAR::%{_pearname}
-Summary(pl.UTF-8):   Testy dla PEAR::%{_pearname}
+Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
 Requires:	%{name} = %{version}-%{release}
 AutoReq:	no
