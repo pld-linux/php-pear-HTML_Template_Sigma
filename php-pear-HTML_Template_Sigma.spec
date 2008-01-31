@@ -8,7 +8,7 @@ Summary:	%{_pearname} - Integrated Templates API implemetation with template 'co
 Summary(pl.UTF-8):	%{_pearname} - Implementacja API Integrated Templates z "kompilacją" szablonów
 Name:		php-pear-%{_pearname}
 Version:	1.1.6
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
