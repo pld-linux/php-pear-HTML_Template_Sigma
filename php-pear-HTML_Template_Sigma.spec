@@ -1,13 +1,13 @@
-%include	/usr/lib/rpm/macros.php
 %define		_class		HTML
 %define		_subclass	Template
 %define		_status		stable
-%define		_pearname	%{_class}_%{_subclass}_Sigma
+%define		_pearname	HTML_Template_Sigma
+%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - Integrated Templates API implemetation with template 'compilation'
 Summary(pl.UTF-8):	%{_pearname} - Implementacja API Integrated Templates z "kompilacją" szablonów
 Name:		php-pear-%{_pearname}
 Version:	1.2.0
-Release:	3
+Release:	4
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -16,14 +16,14 @@ URL:		http://pear.php.net/package/HTML_Template_Sigma/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
-Requires:	php-ctype
+Requires:	php(ctype)
 Requires:	php-pear
 Obsoletes:	php-pear-HTML_Template_Sigma-tests
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # included in tests
-%define		_noautoreq 'pear(Sigma_api_testcase.php)'
+%define		_noautoreq pear(Sigma_api_testcase.php)
 
 %description
 HTML_Template_Sigma implements Integrated Templates API designed by
@@ -93,4 +93,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc install.log
 %doc docs/%{_pearname}/docs/*
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/%{_class}/%{_subclass}/*.php
+%{php_pear_dir}/HTML/Template/*.php
