@@ -2,7 +2,6 @@
 %define		_subclass	Template
 %define		_status		stable
 %define		_pearname	HTML_Template_Sigma
-%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - Integrated Templates API implemetation with template 'compilation'
 Summary(pl.UTF-8):	%{_pearname} - Implementacja API Integrated Templates z "kompilacją" szablonów
 Name:		php-pear-%{_pearname}
